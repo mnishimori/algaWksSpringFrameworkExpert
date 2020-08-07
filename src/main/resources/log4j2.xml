@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36}: %msg%n" />
+		</Console>
+	
+		<File name="File" fileName="../log/brewerLogFile.log">
+			<PatternLayout>
+				<pattern>%d %p %C{1.} [%t] %m%n</pattern>
+			</PatternLayout>
+		</File>
+	</Appenders>
+	
+	<Loggers>
+		<Logger name="br.com.digitalzyon.controller" level="error"/>
+		
+		<Logger name="org.hibernate.SQL" level="debug"/>
+	
+		<Root level="debug">
+			<AppenderRef ref="Console" />
+		</Root>	
+		<Root level="error">
+			<AppenderRef ref="File" />
+		</Root>
+	</Loggers>
+</Configuration>
